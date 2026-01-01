@@ -1,0 +1,15 @@
+{
+  "down_under": {
+    "sounds": [
+      {
+        "name": "agartha:down_under",
+        "stream": true
+      }
+    ]
+  },
+  "yakub_seeing": {
+    "sounds": [
+      "agartha:yakub_seeing"
+    ]
+  }
+}

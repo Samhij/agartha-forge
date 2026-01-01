@@ -1,6 +1,8 @@
 package net.lonk.agartha;
 
 import com.mojang.logging.LogUtils;
+import net.lonk.agartha.item.ModCreativeModeTabs;
+import net.lonk.agartha.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -20,32 +22,28 @@ public class AgarthaMod {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public AgarthaMod(FMLJavaModLoadingContext context) {
-        IEventBus modEventBus = context.getModEventBus();
-        modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::addCreative);
+        IEventBus eventBus = context.getModEventBus();
+        eventBus.addListener(this::commonSetup);
+        eventBus.addListener(this::addCreative);
+
+        ModCreativeModeTabs.register(eventBus);
+
+        ModItems.register(eventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event) {}
 
-    }
-
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
-    }
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {}
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-
-    }
+    public void onServerStarting(ServerStartingEvent event) {}
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
-
-        }
+        public static void onClientSetup(FMLClientSetupEvent event) {}
     }
 }
