@@ -1,9 +1,11 @@
 package net.lonk.agartha.item;
 
 import net.lonk.agartha.AgarthaMod;
+import net.lonk.agartha.entity.ModEntities;
 import net.lonk.agartha.item.custom.WhiteMonsterItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -14,6 +16,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> WHITE_MONSTER = ITEMS.register("white_monster",
             () -> new WhiteMonsterItem(new Item.Properties().rarity(Rarity.RARE).durability(5)));
+
+    public static final RegistryObject<Item> YAKUB_SPAWN_EGG = ITEMS.register("yakub_spawn_egg",
+            () -> new SpawnEggItem(ModEntities.YAKUB.get(), 0xFFFFFF, 0xFFFFFF, new Item.Properties()));
 
     public static final RegistryObject<Item> AGARTHIUM = ITEMS.register("agarthium",
             () -> new Item(new Item.Properties()));

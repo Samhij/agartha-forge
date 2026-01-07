@@ -25,6 +25,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.tryParse("item/generated")).texture("layer0",
-                ResourceLocation.tryBuild(AgarthaMod.MOD_ID, "item/" + item.getId().getPath()));
+                ResourceLocation.fromNamespaceAndPath(AgarthaMod.MOD_ID, "item/" + item.getId().getPath()));
     }
 }
